@@ -93,7 +93,7 @@ body {
 }
 
 .arrowDisplay {
-    background-color: red;
+    display: block;
 }
 
 #menyValg a {
