@@ -1,0 +1,120 @@
+body {
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("Backgroundimg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainWrapper {
+    width: 100%;
+    background-color: transparent;
+}
+
+
+/*HEADER SOM INNEHOLDER EN LOGO*/
+
+#header {
+    
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    width: 100%;
+    z-index: 1;
+    background-color: transparent;
+    color: white;
+    
+}
+/*lOGO MED BORDER SOM SKAPER EN FIRKANT RUNDT ELEMENTENE*/
+#logo {
+    border: 1px solid white;
+    position: relative;
+    padding: 0;
+    margin:auto;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+    
+}
+/*ELEMENTER I LOGOEN*/
+#ts {
+    padding: 0;
+    margin:0;
+    font-size: 60px;
+    line-height: 45px;
+    margin-top: 10px;
+    
+}
+
+#design {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    line-height: 10px;
+    margin-bottom: 10px;
+}
+#meny {
+    border-top: 1px solid white;
+    margin-top: 10px;
+    text-align: center;
+   
+}
+
+#icon {
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    width: 60px;
+    font-size: 50px;
+}
+
+.fa-caret-down:before {
+    
+    left: 0;
+    position: relative;
+    top: -15px
+}
+.fa-caret-down:hover{
+    
+    color: grey;
+}
+#menyValg {
+    
+}
+
+/*MAIN ER DIVEN SOM INNEHOLDER ALT AV CONTENT PÅ SIDEN 
+SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
+
+#main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 100px;
+    grid-template-areas: 'mainContent' 'footer';
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color:transparent;
+    height: 100vh;
+    padding-top: 100px;
+    color: white;
+}
+
+#mainContent {
+    margin-top: 110px;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+#footer {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid white;
+}
