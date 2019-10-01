@@ -6,7 +6,7 @@
     <title> Tommy Svarva - Obligatorisk oppgave 1</title>
     <link rel="stylesheet" type="text/css" href="oppgave1stylesheet.css">
     <script src="https://kit.fontawesome.com/cf201a98d2.js" crossorigin="anonymous"></script>
-
+    <script src="onclick.js"></script>
 </head>
 
 <body>
@@ -19,12 +19,12 @@
                 <p id="design">Design</p>
             </div>
                 <div id="meny">
-                    <div id="icon"><i class="fas fa-caret-down"></i></div> 
+                    <div id="icon"><i class="fas fa-caret-down" id="menyArrow" onclick="dropDown()"></i></div> 
                     <div id="menyValg">
-                        <a>Hjem</a>
+                        <a href="oppgave1.2.html">Hjem</a>
                         <a href="om.html">Om</a>
-                        <a>Portefølje</a>
-                        <a>Github</a>
+                        <a href="portefølje.html">Portefølje</a>
+                        <a href="https://github.com/Tommysvarva" target="_blank">Github</a>
                     </div>    
                 </div>
         </div>
@@ -39,6 +39,15 @@
             <div id="footer">footer</div>
         </div>
     </div>
+    <script>
+        var iconArrow = document.getElementById("menyArrow");
+        
+        function dropDown () {
+        var menyListe = document.getElementById('menyValg');
+        console.log(menyListe);
+        menyListe.classList.toggle("arrowDisplay");
+        }
+    </script>
 </body>
 
 </html>
