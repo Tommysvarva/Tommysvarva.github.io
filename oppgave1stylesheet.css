@@ -111,10 +111,11 @@ body {
 #menyValg a {
     color: white;
     text-decoration: none;
-    padding-bottom: 1.5em;
+    padding-bottom: 10px;
     display: block;
     width: 70px;
     margin: 0 auto;  
+    padding-top: 10px;
 }
 
 #menyValg a:hover {
