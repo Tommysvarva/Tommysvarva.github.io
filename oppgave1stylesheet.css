@@ -85,22 +85,36 @@ body {
     color: grey;
 }
 
-#menyValg { 
-    display: none;
-    padding-top: 5px;
+.menyContent {
+    padding-top: 20px;
     text-align: center;
     position: relative;
+    display: none;
+    z-index: 2;
+    width: 150px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    
 }
 
 .arrowDisplay {
-    display: block;
-}
+    padding-top: 20px;
+    display:block;
+    padding-top: 5px;
+    z-index: 2;
+    
+ }
 
 #menyValg a {
     color: white;
     text-decoration: none;
     padding-bottom: 1.5em;
     display: block;
+    width: 70px;
+    margin: 0 auto;
+    
+    
 }
 
 
@@ -121,7 +135,7 @@ SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
     padding: 0;
     background-color:transparent;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 150px;
     color: white;
 }
 
