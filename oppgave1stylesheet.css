@@ -14,7 +14,7 @@ body {
 }
 
 
-/*HEADER SOM INNEHOLDER EN LOGO*/
+/*HEADER SOM INNEHOLDER EN LOGO OG MENY VALG*/
 
 #header {
     
@@ -56,6 +56,8 @@ body {
     line-height: 10px;
     margin-bottom: 10px;
 }
+
+/*DROP-DOWN MENY MED ICON OG MENY-VALG*/
 #meny {
     border-top: 1px solid white;
     margin-top: 10px;
@@ -80,11 +82,13 @@ body {
     position: relative;
     top: -15px
 }
+
 .fa-caret-down:hover{
     
     color: grey;
 }
 
+/* DROP-DOWN MENY. MENY VALG*/
 .menyContent {
     padding-top: 20px;
     text-align: center;
@@ -94,16 +98,14 @@ body {
     width: 150px;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid white;
-    
+    border: 1px solid white;   
 }
 
-.arrowDisplay {
+.arrowDisplay { /*ONCLICK CHANGES*/
     padding-top: 20px;
     display:block;
     padding-top: 5px;
     z-index: 2;
-    
  }
 
 #menyValg a {
@@ -112,11 +114,8 @@ body {
     padding-bottom: 1.5em;
     display: block;
     width: 70px;
-    margin: 0 auto;
-    
-    
+    margin: 0 auto;  
 }
-
 
 #menyValg a:hover {
     text-decoration: line-through;
