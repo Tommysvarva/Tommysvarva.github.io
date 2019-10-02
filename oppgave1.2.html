@@ -36,8 +36,20 @@
         <div id="main">
             <!--SLIDESHOW-->
             <div id="mainContent">
-                <div id="bilder">bilder</div>
-                <div id="bilderValg">valg</div>
+                <div id="bildeContainer">
+                    <p id="bildeKategori"> Valgt filter: <p>
+
+                    <div id="bilder">
+                        <img src="bildeBilde.jpg" class="bildeBilde">
+                    </div>
+                    <div id="bilderValg">
+                            <div id="filter1">Filter 1</div>
+                            <div id="filter2">Filter 2</div>
+                            <div id="filter3">Filter 3</div>
+                            <div id="filter4">Filter 4</div>
+                            <div id="filter5">Filter 5</div>
+                        </div>
+                </div>
             </div>
             <!--FOOTER-->
             <div id="footer">
@@ -48,12 +60,19 @@
         </div>
     </div>
     <script>
+        // MENYVALG FUNKSJON //
+
         var iconArrow = document.getElementById("menyArrow");
-        
+
         function dropDown () {
             var menyListe = document.getElementById('menyValg');
             menyListe.classList.toggle("arrowDisplay"); 
         }
+
+        // BILDE-FILTER // 
+      
+        
+
     </script>
 </body>
 
