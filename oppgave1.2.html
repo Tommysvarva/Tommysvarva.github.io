@@ -35,18 +35,24 @@
             INNEHOLDE ET BILDE-SLIDESHOW OG EN FOOTER-->
         <div id="main">
             <!--SLIDESHOW-->
-            <div id="mainContent">content</div>
+            <div id="mainContent">
+                <div id="bilder">bilder</div>
+                <div id="bilderValg">valg</div>
+            </div>
             <!--FOOTER-->
-            <div id="footer">footer</div>
+            <div id="footer">
+                <h1>Oppgave 1 av <br>Tommy Svarva</h1>
+                <p>contact: Tommys@getacademy.no</p>
+                <p>Dato:02.10.2019</p>
+            </div>
         </div>
     </div>
     <script>
         var iconArrow = document.getElementById("menyArrow");
         
         function dropDown () {
-        var menyListe = document.getElementById('menyValg');
-        console.log(menyListe);
-        menyListe.classList.toggle("arrowDisplay"); 
+            var menyListe = document.getElementById('menyValg');
+            menyListe.classList.toggle("arrowDisplay"); 
         }
     </script>
 </body>
