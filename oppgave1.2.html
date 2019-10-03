@@ -37,7 +37,7 @@
             <!--SLIDESHOW-->
             <div id="mainContent">
                 <div id="bildeContainer">
-                    <p id="bildeKategori"> Valgt filter: <p>
+                    <p id="bildeKategori">Orginal<p>
 
                     <div id="bilder">
                         <img src="bildeBilde.jpg" id="bildeVindu" class="bildeBilde">
@@ -71,39 +71,59 @@
 
         // BILDE-FILTER // 
         
+        var bildeVindu = document.getElementById("bildeVindu");
+        bildeKatego = document.getElementById("bildeKategori");
+
         function filter1 () {
-            var bildeVindu = document.getElementById("bildeVindu");
                 bildeVindu.classList.remove("effekt2", "effekt3", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt1");
-                console.log(bildeVindu.classList);   
+                console.log(bildeVindu.classList);  
+                valgtFilter(); 
             }
         
         function filter2 () {
-            var bildeVindu = document.getElementById("bildeVindu");
                 bildeVindu.classList.remove("effekt1", "effekt3", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt2");
-                console.log(bildeVindu.classList);   
+                console.log(bildeVindu.classList);  
+                valgtFilter();
             }
         function filter3 () {
-            var bildeVindu = document.getElementById("bildeVindu");
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt3");
                 console.log(bildeVindu.classList);   
+                valgtFilter();
             }
         function filter4 () {
-            var bildeVindu = document.getElementById("bildeVindu");
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt5");
                 bildeVindu.classList.toggle("effekt4");
                 console.log(bildeVindu.classList);   
+                valgtFilter();
             }
         function filter5 () {
-            var bildeVindu = document.getElementById("bildeVindu");
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt4");
                 bildeVindu.classList.toggle("effekt5");
                 console.log(bildeVindu.classList);   
+                valgtFilter();
             }
         
+            // IF SETTNING SOM SJEKKER HVILKEN EFFEKT SOM ER PÅ BILDE OG ENDRER //
+            //"VALGT FILTER:" ETTER HVILKET FILTER SOM ER AKTIVT//
 
+        function valgtFilter () {
+            if (bildeVindu.classList.contains("effekt1")) {
+                bildeKatego.innerHTML = 'Valgt filter:Filter 1';
+            } else if (bildeVindu.classList.contains("effekt2")) {
+                bildeKatego.innerHTML = 'Valgt filter:Filter 2';
+            } else if (bildeVindu.classList.contains("effekt3")) {
+                bildeKatego.innerHTML = 'Valgt filter:Filter 3';
+            } else if (bildeVindu.classList.contains("effekt4")) {
+                bildeKatego.innerHTML = 'Valgt filter:Filter 4';
+            } else if (bildeVindu.classList.contains("effekt5")) {
+                bildeKatego.innerHTML = 'Valgt filter:Filter 5';
+            } else {
+                bildeKatego.innerHTML = 'Orginal'
+            }
+        }
     </script>
 </body>
 
