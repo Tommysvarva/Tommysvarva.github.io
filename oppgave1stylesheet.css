@@ -141,7 +141,7 @@ SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
 
 #mainContent {
     margin: 0 auto;
-    width: 75%;
+    width: 50%;
     height: 600px;
     margin-top: 200px;
     padding: 0;
@@ -175,8 +175,7 @@ SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
 }
 
 .bildeBilde {
-    max-width: 100%;
-    
+    width: 100%;
 }   
 
 
@@ -191,11 +190,28 @@ SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
 #filter1, #filter2, #filter3, #filter4, #filter5 {
     width: 100%;
     position: relative;
-    height: 52px;
-    line-height: 52px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(0, 0, 0, 0.25)
 }
 #filter1, #filter2, #filter3, #filter4 {
     border-right: 1px solid white;
+}
+
+.effekt1 {
+    filter: saturate(300%);     
+}
+.effekt2 {
+    filter: contrast(130%);
+}
+.effekt3 {
+    filter: sepia(30%);
+}
+.effekt4 {
+    filter: hue-rotate(103deg);
+}
+.effekt5 {
+    filter: invert(100%);
 }
 #footer {
     margin: 0;
