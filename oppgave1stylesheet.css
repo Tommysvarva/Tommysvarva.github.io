@@ -198,6 +198,13 @@ SOM IKKE ER DIVEN "HEADER" DVS MainContent OG footer*/
     border-right: 1px solid white;
 }
 
+#filter1:hover, #filter2:hover, #filter3:hover, #filter4:hover, #filter5:hover {
+    font-size: 25px;
+    color: #cccccc;
+    background-color: rgba(0, 0, 0, 0.60);
+    cursor: pointer;
+}
+
 .effekt1 {
     filter: saturate(300%);     
 }
