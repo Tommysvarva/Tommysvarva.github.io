@@ -14,7 +14,7 @@
 
         <!--HEADERLOGO PÅ SIDEN -->
         <div id="header">
-            <div id="logo">
+            <div id="logo" onmouseover="changeThis(this)">
                 <h1 id="ts">TS</h1>
                 <p id="design">Design</p>
             </div>
@@ -43,11 +43,11 @@
                         <img src="bildeBilde.jpg" id="bildeVindu" class="bildeBilde">
                     </div>
                     <div id="bilderValg">
-                            <div id="filter1" onclick="filter1()">Filter 1</div>
-                            <div id="filter2" onclick="filter2()">Filter 2</div>
-                            <div id="filter3" onclick="filter3()">Filter 3</div>
-                            <div id="filter4" onclick="filter4()">Filter 4</div>
-                            <div id="filter5" onclick="filter5()">Filter 5</div>
+                            <div id="filter1" onclick="filter1(); endreFont(this);" >Filter 1</div>
+                            <div id="filter2" onclick="filter2(); endreFont(this);" >Filter 2</div>
+                            <div id="filter3" onclick="filter3(); endreFont(this);" >Filter 3</div>
+                            <div id="filter4" onclick="filter4(); endreFont(this);" >Filter 4</div>
+                            <div id="filter5" onclick="filter5(); endreFont(this);" >Filter 5</div>
                         </div>
                 </div>
             </div>
@@ -76,33 +76,28 @@
 
         function filter1 () {
                 bildeVindu.classList.remove("effekt2", "effekt3", "effekt4", "effekt5");
-                bildeVindu.classList.toggle("effekt1");
-                console.log(bildeVindu.classList);  
+                bildeVindu.classList.toggle("effekt1");  
                 valgtFilter(); 
             }
         
         function filter2 () {
                 bildeVindu.classList.remove("effekt1", "effekt3", "effekt4", "effekt5");
-                bildeVindu.classList.toggle("effekt2");
-                console.log(bildeVindu.classList);  
+                bildeVindu.classList.toggle("effekt2");  
                 valgtFilter();
             }
         function filter3 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt4", "effekt5");
-                bildeVindu.classList.toggle("effekt3");
-                console.log(bildeVindu.classList);   
+                bildeVindu.classList.toggle("effekt3");   
                 valgtFilter();
             }
         function filter4 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt5");
-                bildeVindu.classList.toggle("effekt4");
-                console.log(bildeVindu.classList);   
+                bildeVindu.classList.toggle("effekt4");   
                 valgtFilter();
             }
         function filter5 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt4");
-                bildeVindu.classList.toggle("effekt5");
-                console.log(bildeVindu.classList);   
+                bildeVindu.classList.toggle("effekt5");   
                 valgtFilter();
             }
         
@@ -124,6 +119,10 @@
                 bildeKatego.innerHTML = 'Orginal'
             }
         }
+       // EN FUNCTION SOM ENDRER FARGEN PÅ TEKSTEN AV ELEMENTET DU TRYKKER PÅ MED EN THIS //
+       function endreFont (denne) {
+            denne.style.color = "grey";
+       }
     </script>
 </body>
 
