@@ -94,7 +94,7 @@ body {
     text-align: center;
     position: relative;
     display: none;
-    z-index: 2;
+    z-index: 1;
     width: 150px;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.2);

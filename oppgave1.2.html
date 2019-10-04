@@ -14,7 +14,7 @@
 
         <!--HEADERLOGO PÅ SIDEN -->
         <div id="header">
-            <div id="logo" onmouseover="changeThis(this)">
+            <div id="logo">
                 <h1 id="ts">TS</h1>
                 <p id="design">Design</p>
             </div>
@@ -74,6 +74,8 @@
         var bildeVindu = document.getElementById("bildeVindu");
         bildeKatego = document.getElementById("bildeKategori");
 
+        //FUNCIONS SOM FØRST FJERNER ALLE EFFEKTER SOM IKKE TILHØRER VALG EFFEKT
+        //FOR SÅ Å TILFØRE EFFEKTEN SOM ER VALGT
         function filter1 () {
                 bildeVindu.classList.remove("effekt2", "effekt3", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt1");  
