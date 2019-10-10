@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> Tommy Svarva - Obligatorisk oppgave 1</title>
+    <link rel="stylesheet" type="text/css" href="oppgave1stylesheet.css">
+    <script src="https://kit.fontawesome.com/cf201a98d2.js" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div id="mainWrapper">
+
+        <!--HEADERLOGO PÅ SIDEN -->
+        <div id="header">
+            <div id="logo">
+                <h1 id="ts">TS</h1>
+                <p id="design">Design</p>
+            </div>
+            <!--DROPDOWN MENY, INNEHOLDER ET ICON OG LINKER TIL SIDEN OG EKSTERNT-->
+                <div id="meny">
+                    <div id="icon" title="Meny"><i class="fas fa-caret-down" id="menyArrow" onclick="dropDown()"></i></div> 
+                    <div id="menyValg" class="menyContent">
+                        <a href="oppgave1.2.html">Hjem</a>
+                        <a href="om.html">Om</a>
+                        <a href="portefølje.html">Portefølje</a>
+                        <a href="https://github.com/Tommysvarva" target="_blank">Github</a>
+                    </div>    
+                </div>
+        </div>
+        
+
+        <!--HOVEDINNHOLE. ALT UTENOM HEADER. DVS SELVE SIDEN SOM SKAL
+            INNEHOLDE ET BILDE FITLER OG EN FOOTER-->
+        <div id="main">
+            <div id="mainContent">
+                <div id="bildeContainer">
+                    <p id="bildeKategori">Orginal<p>
+
+                    <div id="bilder">
+                        <img src="bildeBilde.jpg" id="bildeVindu" class="bildeBilde">
+                    </div>
+                    <div id="bilderValg">
+                            <div id="filter1" onclick="filter1(); endreFont(this);" >Filter 1</div>
+                            <div id="filter2" onclick="filter2(); endreFont(this);" >Filter 2</div>
+                            <div id="filter3" onclick="filter3(); endreFont(this);" >Filter 3</div>
+                            <div id="filter4" onclick="filter4(); endreFont(this);" >Filter 4</div>
+                            <div id="filter5" onclick="filter5(); endreFont(this);" >Filter 5</div>
+                        </div>
+                </div>
+            </div>
+            <!--FOOTER-->
+            <div id="footer">
+                <h1>Oppgave 1 av <br>Tommy Svarva</h1>
+                <p>contact: Tommys@getacademy.no</p>
+                <p>Dato:02.10.2019</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // MENYVALG FUNKSJON //
+        var menyListe = document.getElementById('menyValg');
+        var iconArrow = document.getElementById("menyArrow");
+
+        function dropDown () {
+            menyListe.classList.toggle("arrowDisplay"); 
+        }
+
+        // BILDE-FILTER // 
+        var bildeVindu = document.getElementById("bildeVindu"); // selve bilde objektet i HTML
+        var bildeKatego = document.getElementById("bildeKategori"); // paragrafen som sier hvilket filter som er valgt
+        var bildeKategoValue = "Orginal";
+        
+        function filter1 () {
+                removeEffects();
+                bildeVindu.classList.toggle("effekt1");  
+                valgtFilter(); kategori(); 
+            }
+        
+        function filter2 () {
+                removeEffects();
+                bildeVindu.classList.toggle("effekt2");  
+                valgtFilter(); kategori();
+            }
+        function filter3 () {
+                removeEffects();
+                bildeVindu.classList.toggle("effekt3");   
+                valgtFilter(); kategori();
+            }
+        function filter4 () {
+                removeEffects();
+                bildeVindu.classList.toggle("effekt4");   
+                valgtFilter(); kategori();
+            }
+        function filter5 () {
+                removeEffects();
+                bildeVindu.classList.toggle("effekt5");   
+                valgtFilter(); kategori();      
+            }
+        //controller
+        function removeEffects () {
+            bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt4", "effekt5");
+        }
+        function kategori () {
+            bildeKatego.innerHTML = bildeKategoValue;    
+        }
+        function valgtFilter () {
+            if (bildeVindu.classList.contains("effekt1")) {
+                bildeKategoValue = 'Valgt filter:Filter 1';
+            } else if (bildeVindu.classList.contains("effekt2")) {
+                bildeKategoValue = 'Valgt filter:Filter 2';
+            } else if (bildeVindu.classList.contains("effekt3")) {
+                bildeKategoValue = 'Valgt filter:Filter 3';
+            } else if (bildeVindu.classList.contains("effekt4")) {
+                bildeKategoValue = 'Valgt filter:Filter 4';
+            } else if (bildeVindu.classList.contains("effekt5")) {
+                bildeKategoValue = 'Valgt filter:Filter 5';
+            } else {
+                bildeKategoValue = 'Orginal';
+            }
+        }
+       // EN FUNCTION SOM ENDRER FARGEN PÅ TEKSTEN AV ELEMENTET DU TRYKKER PÅ MED EN THIS //
+        function endreFont (denne) {
+            denne.style.color = "grey";
+        }
+    </script>
+</body>
+</html>
