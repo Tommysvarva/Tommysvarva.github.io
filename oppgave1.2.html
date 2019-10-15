@@ -34,7 +34,6 @@
         <!--HOVEDINNHOLE. ALT UTENOM HEADER. DVS SELVE SIDEN SOM SKAL
             INNEHOLDE ET BILDE FITLER OG EN FOOTER-->
         <div id="main">
-            <!--SLIDESHOW-->
             <div id="mainContent">
                 <div id="bildeContainer">
                     <p id="bildeKategori">Orginal<p>
@@ -71,36 +70,38 @@
 
         // BILDE-FILTER // 
         
-        var bildeVindu = document.getElementById("bildeVindu");
-        var bildeKatego = document.getElementById("bildeKategori");
+
+        //model
+        var bildeVindu = document.getElementById("bildeVindu"); // selve bilde objektet i HTML
+        var bildeKatego = document.getElementById("bildeKategori"); // paragrafen som sier hvilket filter som er valgt
 
         //FUNCIONS SOM FØRST FJERNER ALLE EFFEKTER SOM IKKE TILHØRER VALG EFFEKT
         //FOR SÅ Å TILFØRE EFFEKTEN SOM ER VALGT
         function filter1 () {
                 bildeVindu.classList.remove("effekt2", "effekt3", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt1");  
-                valgtFilter(); 
+                kategori(); 
             }
         
         function filter2 () {
                 bildeVindu.classList.remove("effekt1", "effekt3", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt2");  
-                valgtFilter();
+                kategori();
             }
         function filter3 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt4", "effekt5");
                 bildeVindu.classList.toggle("effekt3");   
-                valgtFilter();
+                kategori();
             }
         function filter4 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt5");
                 bildeVindu.classList.toggle("effekt4");   
-                valgtFilter();
+                kategori();
             }
         function filter5 () {
                 bildeVindu.classList.remove("effekt1", "effekt2", "effekt3", "effekt4");
                 bildeVindu.classList.toggle("effekt5");   
-                valgtFilter();
+                kategori();
             }
         
             // IF SETTNING SOM SJEKKER HVILKEN EFFEKT SOM ER PÅ BILDE OG ENDRER //
