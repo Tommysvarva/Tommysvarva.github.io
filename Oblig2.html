@@ -87,18 +87,23 @@
         //Legg til stolpe basert på input sin value. Denne blir lagt til i numbers array
         function addSquare() {
             if (input.value < 1 || input.value > 10) {
-                alert("FEIL: INGEN VERDI OPPGITT");
+                alert("FEIL: INGEN VERDI OPPGITT (Verdi må være mellom 1-10");
             } else {
                 numbers.push(input.value);
                 showChart();
             }
         }
-
+        // Endre Stolpe som er valgt(square) og endre verdien på array basert på square-1
         function changeSquare() {
             console.log(numbers);
-            numbers[square - 1] = input.value;
-            console.log(numbers);
-            showChart();
+            if (input.value < 1 || input.value > 10) {
+                alert("FEIL:Verdi må være mellom 1-10");
+                showChart();
+            } else {
+                numbers[square - 1] = input.value;
+                showChart();
+
+            }
         }
 
         // Fjerner stolpe basert på barnr. 
@@ -136,9 +141,6 @@
         //5.Når man trykker på "Legg til stolpe", skal det legges til et nytt tall sist i listen
         //(og en ny stolpe lengst til høyre i stolpediagrammet) med verdien som brukeren har skrevet i input-boksen.
         //Dersom brukeren ikke har skrevet en gyldig verdi i input-boksen, skal det gis en feilmelding.
-
-        //følelsen av at noe som virket umulig og som man ikke skjønte en noen ting av begynner å løsne. OG det har gjort meg flinkere
-        //til å takle det at man ikke vet hva man skal gjøre.
     </script>
 
 </body>
