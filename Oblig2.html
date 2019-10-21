@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tommy Svarva - Obligatorisk oppgave 2</title>
+    <link rel="stylesheet" type="text/css" href="Oblig2.css" />
+</head>
+
+<body>
+    <div>
+        <svg id="chart" width="500" viewBox="0 0 80 60"></svg>
+    </div id="chosenbar">
+    Valgt stolpe: <i>ingen</i><br /> Verdi: <input type="number" min="1" max="10" id="inputx" /><button id="addbutton" onclick="addSquare()">Legg til stolpe</button>
+    <button disabled id="changebutton" onclick="changeSquare()">Endre valgt stolpe</button><br />
+    <button disabled id="removebutton" onclick="removeSquare(square)">Fjerne valgt stolpe</button>
+
+    <script>
+        //MODELS
+        let numbers = [7, 3, 1, 5, 8];
+        var svgTag = document.getElementById('chart');
+        let square = 0;
+        let changeButton = document.getElementById('changebutton');
+        let removeButton = document.getElementById('removebutton');
+        let addButton = document.getElementById('addbutton');
+        let input = document.getElementById('inputx');
+        //const chosenBar = document.getElementById('chosenbar');
+        showChart();
+
+
+
+        //VIEW
+
+        function showChart() {
+            let svgInnerHtml = '';
+            for (let i = 0; i < numbers.length; i++) {
+                svgInnerHtml += createBar(numbers[i], i + 1);
+            }
+            svgTag.innerHTML = svgInnerHtml;
+        }
+
+        // EN FUNKSJON SOM LAGER EN FIRKANT
+        function createBar(number, barNo) {
+            const width = 8;
+            const spacing = 2;
+            let x = (barNo - 1) * (width + spacing);
+            let height = number * 10;
+            let y = 60 - height;
+            let color = calcColor(1, 10, barNo);
+            if (square == barNo) {
+                checkIfSelected();
+                return `<rect width="${width}" height="${height}"
+                            x="${x}" y="${y}" fill="${color}" onclick="assignID(${barNo})" stroke="black" stroke-width="0.4"></rect>`;
+            } else {
+                checkIfSelected();
+                return `<rect width="${width}" height="${height}"
+                            x="${x}" y="${y}" fill="${color}" onclick="assignID(${barNo})"></rect>`;
+            }
+
+        }
+
+        // En funksjon som gir barene en variabelverdi, basert på "barNo" sin verdi
+        function assignID(chosenSquare) {
+            //Hvis parameteret{barNo} allerede er det samme som (square) sin verdi, så vil den sette square til 0;
+            // Dette vil kun skje om square allerede har fått en verdi fra en tidligere onclick DVS det som skjer i else
+            if (chosenSquare == square) {
+                square = 0;
+                showChart();
+            } else {
+                square = chosenSquare; //Hvis ikke "{barNo}" = var square blir variablen square endret til å være lik {barNo}. 
+                showChart();
+            }
+        }
+
+        // En funksjon som sjekker om en firkant er valgt basert på variablen square sin value
+        function checkIfSelected() {
+            if (square == 0) {
+                changeButton.disabled = true;
+                removeButton.disabled = true;
+            } else {
+                changeButton.disabled = false;
+                removeButton.disabled = false;
+            }
+        }
+        //Legg til stolpe basert på input sin value. Denne blir lagt til i numbers array
+        function addSquare() {
+            if (input.value < 1 || input.value > 10) {
+                alert("FEIL: INGEN VERDI OPPGITT");
+            } else {
+                numbers.push(input.value);
+                showChart();
+            }
+        }
+
+        function changeSquare() {
+            console.log(numbers);
+            numbers[square - 1] = input.value;
+            console.log(numbers);
+            showChart();
+        }
+
+        // Fjerner stolpe basert på barnr. 
+        function removeSquare(barnr) {
+            numbers.splice(barnr - 1, 1);
+            showChart();
+        }
+
+
+        // EN FUNKSJON SOM KALKULERER FARGE VED BRUK AV HSL. 
+        // FUNKSJONEN TAR INN 3 PARAMETERS, SOM BLIR BRUKT FOR Å GENERERE FARGE.
+        function calcColor(min, max, val) {
+            var minHue = 240,
+                maxHue = 0;
+            var curPercent = (val - min) / (max - min);
+            var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
+            return colString;
+        }
+
+
+        //1.Gjør det mulig å velge en stolpe. Man skal kunne velge en stolpe ved å klikke på den.
+        // Den skal da få en svart ramme rundt seg, og i tillegg skal teksten oppdateres til for eksempel "Valgt stolpe: 1".
+        // Hvis man klikker på den stolpen som allerede er valgt, skal deretter ingen stolpe være valgt.
+
+        //2.Knappene "Endre valgt stolpe" og "Fjerne valgt stolpe" skal være disablet når ingen stolpe er valgt - og enablet ellers. 
+
+        //3.Når man trykker på "Fjerne valgt stolpe", skal den valgte stolpen fjernes.
+        //Alle stolper som var til høyre for denne, flyttes da ett hakk til venstre.
+        //Det vil si at om numbers er [1, 2, 3, 4, 5] - og så fjerner stolpen i midten, så skal numbers etter det være  [1, 2, 4, 5].
+
+        //4.Når man trykker på "Endre valgt stolpe", skal den valgte stolpen endre verdien som brukeren har skrevet i input-boksen.
+        //Det er kun 1,2,3,4,5,6,7,8, 9 og 10 som er gyldige verdier. 
+        //Dersom brukeren ikke har skrevet en gyldig verdi i input-boksen, skal det gis en feilmelding.
+
+        //5.Når man trykker på "Legg til stolpe", skal det legges til et nytt tall sist i listen
+        //(og en ny stolpe lengst til høyre i stolpediagrammet) med verdien som brukeren har skrevet i input-boksen.
+        //Dersom brukeren ikke har skrevet en gyldig verdi i input-boksen, skal det gis en feilmelding.
+
+        //følelsen av at noe som virket umulig og som man ikke skjønte en noen ting av begynner å løsne. OG det har gjort meg flinkere
+        //til å takle det at man ikke vet hva man skal gjøre.
+    </script>
+
+</body>
+
+</html>
