@@ -12,10 +12,11 @@
 <body>
     <div>
         <svg id="chart" width="500" viewBox="0 0 80 60"></svg>
-    </div id="chosenbar">
-    Valgt stolpe: <i>ingen</i><br /> Verdi: <input type="number" min="1" max="10" id="inputx" /><button id="addbutton" onclick="addSquare()">Legg til stolpe</button>
-    <button disabled id="changebutton" onclick="changeSquare()">Endre valgt stolpe</button><br />
+    </div><div id="options">Valgt stolpe: <i id="valgtStolpe">ingen</i><br />
+    Verdi:<input type="number" min="1" max="10" id="inputx" /><button id="addbutton" onclick="addSquare()">Legg til stolpe</button>
+    <button disabled id="changebutton" onclick="changeSquare()">Endre valgt stolpe</button>
     <button disabled id="removebutton" onclick="removeSquare(square)">Fjerne valgt stolpe</button>
+        </div>
 
     <script>
         //MODELS
@@ -26,7 +27,7 @@
         let removeButton = document.getElementById('removebutton');
         let addButton = document.getElementById('addbutton');
         let input = document.getElementById('inputx');
-        //const chosenBar = document.getElementById('chosenbar');
+        let chosenBar = document.getElementById("valgtStolpe");
         showChart();
 
 
@@ -39,6 +40,8 @@
                 svgInnerHtml += createBar(numbers[i], i + 1);
             }
             svgTag.innerHTML = svgInnerHtml;
+            
+
         }
 
         // EN FUNKSJON SOM LAGER EN FIRKANT
@@ -49,6 +52,7 @@
             let height = number * 10;
             let y = 60 - height;
             let color = calcColor(1, 10, barNo);
+            chosenBarNr();
             if (square == barNo) {
                 checkIfSelected();
                 return `<rect width="${width}" height="${height}"
@@ -82,6 +86,7 @@
             } else {
                 changeButton.disabled = false;
                 removeButton.disabled = false;
+
             }
         }
         //Legg til stolpe basert på input sin value. Denne blir lagt til i numbers array
@@ -112,6 +117,14 @@
             showChart();
         }
 
+        // Viser hvilken stolpe basert på square sin verdi
+        function chosenBarNr () {
+            if (square == 0) {
+                chosenBar.innerHTML = "ingen";
+            } else {
+                chosenBar.innerHTML = square;
+            }
+        }
 
         // EN FUNKSJON SOM KALKULERER FARGE VED BRUK AV HSL. 
         // FUNKSJONEN TAR INN 3 PARAMETERS, SOM BLIR BRUKT FOR Å GENERERE FARGE.
