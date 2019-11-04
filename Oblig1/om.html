@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title> Tommy Svarva - Obligatorisk oppgave1 - Om Meg</title>
+    <link rel="stylesheet" type="text/css" href="oppgave1stylesheet.css">
+    <script src="https://kit.fontawesome.com/cf201a98d2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="mainWrapper">
+
+        <!--HEADERLOGO PÅ SIDEN -->
+        <div id="header">
+            <div id="logo">
+                <h1 id="ts">TS</h1>
+                <p id="design">Design</p>
+            </div>
+            <!--DROPDOWN MENY, INNEHOLDER ET ICON OG LINKER TIL SIDEN OG EKSTERNT-->
+                <div id="meny">
+                    <div id="icon" title="Meny"><i class="fas fa-caret-down" id="menyArrow" onclick="dropDown()"></i></div> 
+                    <div id="menyValg" class="menyContent">
+                        <a href="oppgave1.2.html">Hjem</a>
+                        <a href="om.html">Om</a>
+                        <a href="portefølje.html">Portefølje</a>
+                        <a href="https://github.com/Tommysvarva" target="_blank">Github</a>
+                    </div>    
+                </div>
+        </div>
+        
+
+        <!--HOVEDINNHOLE. ALT UTENOM HEADER. DVS SELVE SIDEN SOM SKAL
+            INNEHOLDE ET BILDE-SLIDESHOW OG EN FOOTER-->
+        <div id="main">
+            <!--SLIDESHOW-->
+            <div id="mainContent">
+                <h3> Om Meg</h3>
+                <p>blablablabla
+                    blablablablablablablablablablablablablablablabla
+                    blablablablablablablablablablablablablablablablablablablabla
+                    blablablablablablablablablablablablablablablablablablablabla
+                    blablablablablablablablablablablablablablablablablablablabla
+                    blablablablablablablablablablablablablablablablablablablabla
+                </p>
+            </div>
+            <!--FOOTER-->
+            <div id="footer">footer</div>
+        </div>
+    </div>
+    <script>
+        var iconArrow = document.getElementById("menyArrow");
+        
+        function dropDown () {
+        var menyListe = document.getElementById('menyValg');
+        console.log(menyListe);
+        menyListe.classList.toggle("arrowDisplay"); 
+        }
+    </script>
+</body>
+
+</html>
