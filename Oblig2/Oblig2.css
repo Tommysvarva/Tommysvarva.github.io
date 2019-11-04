@@ -1,3 +1,13 @@
 svg {
     overflow: hidden;
+    padding: 25px;
+    padding-bottom: 0px;
+    border: 2px solid black;
+}
+
+#options {
+    border: 2px solid black;
+    width: 550px;
+    padding-bottom: 10px;
+   
 }
