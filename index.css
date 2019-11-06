@@ -28,6 +28,11 @@ li {
     text-shadow: 1px 1px #000000;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 #mainContent {
     width: 100%;
     height: 100vh;
