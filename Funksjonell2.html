@@ -62,10 +62,13 @@
         }
 
         function createRow(i) {
-            var isFirstSquareWhite = i % 2 == 0;
-            var x = isFirstSquareWhite ? 1 : 0;
+            console.log(i);
+            var isFirstSquareWhite = i % 2 == 0; // Hvis i kan deles på 2 er variablen true. Hvis ikke er den false
+            console.log(isFirstSquareWhite);
+            var x = isFirstSquareWhite ? 1 : 0; // Setter x til å være 1 eller 0. Hvis true (1). Hvis false (0)
+            console.log(x);
             return createArray(8).map(i => ({
-                isBlack: i % 2 === x
+                isBlack: i % 2 === x // returnerer et object med isBlack: true/false
             }));
         }
 
