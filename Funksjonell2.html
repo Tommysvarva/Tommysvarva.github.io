@@ -57,8 +57,8 @@
         console.log(boardModel.filter(square => square.piece));
 
         function createBoard() {
-            return createArray(8).map(createRow)
-                .reduce((board, row) => board.concat(row), []);
+            return createArray(8).map(createRow) // Lager et nytt array
+                .reduce((board, row) => board.concat(row), []); // den initielle verdien slås sammen med den nye verdien. Gjør flere arrays til et array.
         }
 
         function createRow(i) {
