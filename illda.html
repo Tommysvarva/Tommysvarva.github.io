@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>The CareTag</title>
+
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            /* Styled in normalize.css */
+            text-decoration: none;
+            color: black;
+            font-family: Verdana;
+        }
+        
+        body {
+            background-color: #FFFFCC;
+        }
+        
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0 auto;
+            max-width: 1550px;
+            padding-top: .5rem;
+            width: 93%;
+        }
+        
+        .main-header a {
+            margin: auto;
+            letter-spacing: .18rem;
+            text-transform: uppercase;
+            font-size: 70px;
+        }
+        
+        .masthead {
+            /* Gjør så menyen vises */
+            position: relative;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            align-items: baseline;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .masthead h1 {
+            transition-delay: 450ms;
+        }
+        
+        .menu-toggle {
+            cursor: pointer;
+            width: 55px;
+            z-index: 3;
+        }
+        
+        .menu-toggle div {
+            background-color: black;
+            border-radius: 25px;
+            box-shadow: 0px 3px 13px rgba(0, 0, 0, .3);
+            height: 7px;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(.13, .24, .35, 1.64);
+        }
+        
+        .menu-toggle .one,
+        .menu-toggle .two {
+            margin-bottom: 7px;
+        }
+        /*endrer på copyright(tekst i bunn)*/
+        
+        .main-contents {
+            flex: auto;
+        }
+        
+        .main-footer {
+            font-size: .9em;
+            letter-spacing: .18rem;
+            margin-bottom: 1.5rem;
+            margin-top: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        /* Style and animate the nav overlay */
+        
+        .main-nav-list::before,
+        .main-nav-list::after {
+            background-color: #FF4848;
+            content: "";
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            width: 0vw;
+            transition: all 100ms ease-in-out 150ms;
+        }
+        
+        .main-nav-list::before {
+            left: 0;
+        }
+        
+        .main-nav-list::after {
+            right: 0;
+        }
+        /*Utseende+ på tekst i menyen*/
+        
+        .main-nav-list ul {
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition-duration: 100ms;
+            transition-timing-function: ease-in-out;
+            z-index: 2000;
+        }
+        
+        .main-nav-list a {
+            display: block;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            opacity: 0;
+            text-align: center;
+            text-transform: uppercase;
+            transition-delay: 100ms;
+        }
+        /*disse tre blir fra en meny knapp til et kryss*/
+        
+        .menu-toggle.active .one {
+            box-shadow: 0px 3px 13px red;
+            transform: translate(0, 14px) rotate(45deg);
+        }
+        
+        .menu-toggle.active .two {
+            background-color: transparent;
+            box-shadow: none;
+            transform: translate(-55px);
+        }
+        
+        .menu-toggle.active .three {
+            box-shadow: 0px 3px 13px red;
+            transform: translate(0, -14px) rotate(-45deg);
+        }
+        /*Får opp og bort listen*/
+        
+        .main-nav-list.active::before,
+        .main-nav-list.active::after {
+            width: 25vw;
+        }
+        /*viser det som står i menyen når den er åpen*/
+        
+        .main-nav-list.active ul {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition-delay: 560ms;
+            transition-duration: 240ms;
+            transition-timing-function: cubic-bezier(.1, .2, .3, 1.4);
+        }
+        
+        .main-nav-list.active a {
+            transition-delay: 600ms;
+            opacity: 1;
+        }
+        /*skjuler det under siden som kommer opp*/
+        
+        .wrapper.active h1 {
+            color: transparent;
+            transition-delay: 150ms;
+            transition-duration: 350ms;
+        }
+        
+        .wrapper.active pre {
+            color: transparent;
+            transition-delay: 150ms;
+            transition-duration: 350ms;
+        }
+        
+        .wrapper.active img {
+            display: block;
+            opacity: 0.0;
+            transition-delay: 150ms;
+            transition-duration: 350ms;
+        }
+        
+        .wrapper.active button {
+            opacity: 0.0;
+            transition-delay: 150ms;
+            transition-duration: 350ms;
+        }
+        
+        button {
+            font-size: 60px;
+            background-color: red;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        pre {
+            font-size: 50px;
+        }
+        
+        h1 {
+            font-size: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper active-element">
+        <header class="main-header">
+            <nav>
+                <div class="masthead active-element">
+                    <h1>The CareTag</h1>
+                    <div id="menu-toggle" class="menu-toggle active-element">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                </div>
+                <div class="main-nav-list active-element">
+                    <ul>
+                        <li><a href="https://www.rodekorsforstehjelp.no/rad-og-informasjon/instruksjonsvideoer/">Instruksjonsvideoer om førstehjelp</a></li>
+                        <br />
+                        <li><a href="https://helsenorge.no/forstehjelp-og-skader/hjerte-og-lungeredning">Hjerte-og-lungeredning</a></li>
+                        <br />
+                        <li><a href="#">Om The CareTag</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+        <main class="main-contents">
+            <br />
+            <br />
+            <br />
+
+
+            <br />
+            <img src="https://www.vegansamfunnet.no/wp-content/uploads/2017/03/Bilde.png" alt="profilbilde">
+
+            <pre>
+ Navn: Pernille
+
+ Fødselsdato: 17.07.2015
+
+ Pårørende: +47 9113399
+</pre>
+            <br />
+            <button type="button" onclick="alert('Ringer 113')">Ring 113</button>
+        </main>
+        <footer class="main-footer active-element"><span class="copyright">&copy;2019 Get Academy</span></footer>
+    </div>
+
+    <script>
+        /*grab HTML items from this file*/
+        /*id = #, class = .*/
+        var menuToggle = document.querySelector("#menu-toggle");
+        var activeElements = document.querySelectorAll(".active-element");
+        var toggledMenu = menuToggle.addEventListener("click", function() {
+            for (var activated = 0; activated < activeElements.length; activated++) {
+                activeElements[activated].classList.toggle("active");
+            }
+        })
+    </script>
+
+</html>
