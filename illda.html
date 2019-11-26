@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8" />
     <title>The CareTag</title>
+    <script src="https://kit.fontawesome.com/cf201a98d2.js" crossorigin="anonymous"></script>
+
 
     <style>
         * {
@@ -46,9 +48,10 @@
             z-index: 1000;
             top: 0;
             left: 0;
-            width: 100%;
+            font-size: 100px;
             align-items: baseline;
             display: flex;
+            padding-right: 50px;
             justify-content: space-between;
         }
         
@@ -214,6 +217,10 @@
         h1 {
             font-size: 45px;
         }
+        
+        .fa-medkit:before {
+            color: red;
+        }
     </style>
 </head>
 
@@ -224,9 +231,7 @@
                 <div class="masthead active-element">
                     <h1>The CareTag</h1>
                     <div id="menu-toggle" class="menu-toggle active-element">
-                        <div class="one"></div>
-                        <div class="two"></div>
-                        <div class="three"></div>
+                        <i class="fas fa-medkit"></i>
                     </div>
                 </div>
                 <div class="main-nav-list active-element">
