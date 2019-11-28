@@ -1,0 +1,57 @@
+/*.page =Height 100%, så skal .navbar være 25-50px og .main-content skal vise resten
+ 
+*/
+
+div.page {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
+    grid-template-areas: 'main-content';
+}
+
+div.pageNav {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 9fr 3fr;
+    grid-template-columns: auto;
+    grid-template-areas: 'main-content' 'nav-bar';
+}
+
+.main-content {
+    background-color: #213041;
+    color: white; 
+}
+
+.nav-bar {
+    border: 1px solid black;
+    background-color: #f4f4f4;
+}
+
+
+/* Tablet Styles */
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .sign-up,
+    .feature-1,
+    .feature-2,
+    .feature-3 {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 961px) {
+    .page {
+        width: 960px;
+        margin: 0 auto;
+    }
+    .feature-1,
+    .feature-2,
+    .feature-3 {
+        width: 33.3%;
+    }
+    .header {
+        height: 400px;
+    }
+}
+
