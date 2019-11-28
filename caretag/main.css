@@ -6,7 +6,6 @@ div.page {
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-rows: 1fr 25px;
     grid-template-columns: auto;
     grid-template-areas: 'main-content';
 }
@@ -14,7 +13,7 @@ div.page {
 div.pageNav {
     height: 100vh;
     display: grid;
-    grid-template-rows: 9fr 3fr;
+    grid-template-rows: 6fr 1fr;
     grid-template-columns: auto;
     grid-template-areas: 'main-content' 'nav-bar';
 }
@@ -56,4 +55,8 @@ div.pageNav {
     .header {
         height: 400px;
     }
+}
+.flag {
+    width: 50px;
+    height: 50px;
 }
