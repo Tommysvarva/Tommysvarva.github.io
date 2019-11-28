@@ -6,6 +6,7 @@ div.page {
     height: 100%;
     display: grid;
     grid-template-rows: 1fr;
+    grid-template-rows: 1fr 25px;
     grid-template-columns: auto;
     grid-template-areas: 'main-content';
 }
@@ -20,10 +21,12 @@ div.pageNav {
 
 .main-content {
     background-color: #213041;
-    color: white; 
+    color: white;
+    height: 100%;
 }
 
 .nav-bar {
+    height: 100%;
     border: 1px solid black;
     background-color: #f4f4f4;
 }
@@ -54,4 +57,3 @@ div.pageNav {
         height: 400px;
     }
 }
-
